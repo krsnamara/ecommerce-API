@@ -3,6 +3,8 @@ const app = express();
 const mongoose = require("mongoose");
 require('dotenv').config();
 const userRoute = require("./routes/user");
+const authRoute = require("./routes/auth");
+
 const PORT = process.env.PORT || 3000;
 
 mongoose.connect(process.env.DATABASE_URI).then(()=>console.log("DBConnection Successful!"))
@@ -16,6 +18,7 @@ app.get("/api/test", ()=>{
 
 app.use(express.json());
 
+app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 
 app.listen(PORT, () => console.log('express is listening on:', PORT));
