@@ -40,7 +40,6 @@ router.post('/login', async (req, res) => {
             process.env.PASS_SEC
         );
 
-
         const originalPassword = hashedPassword.toString(CryptoJS.enc.Utf8);
 
         const inputPassword = req.body.password;
