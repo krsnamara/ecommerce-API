@@ -18,8 +18,7 @@ mongoose.connect(process.env.DATABASE_URI).then(()=>console.log("DBConnection Su
 });
 
 app.use(cors());
-
-
+app.use(express.static("public"));
 app.use(express.json());
 
 app.use("/api/auth", authRoute);
